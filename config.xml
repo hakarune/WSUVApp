@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.example"
+        versionCode="10" 
+        version   = "1.0.0">
+
+	<name>WSU Vancouver</name>
+
+	<description>
+		This is an app specific for WSU Vancouver stuedents with quick directory of faculty experts guide quick links to access to WSU-V Facebook pages ZZUSIS Student Email plus Bookstore info and links. Also has a campus map .
+	</description>
+
+	<author href="http://wsuv.orgsync.com/org/aswsuv/"
+		email="aswsuv.dc@vancouver.wsu.edu">
+		 &copy; ASWSUV and its Respective Contributors 2012
+	</author>
+
+	<gap:platforms>
+		<gap:platform name="android" minVersion="2.1" />
+		<gap:platform name="webos" />
+		<gap:platform name="symbian.wrt" />
+		<gap:platform name="blackberry" project="widgets"/>
+	</gap:platforms>
+
+	<icon src="images/icon.png" gap:role="default" />
+
+	 <preference name="permissions" value="none"/>
+	 
+	 <!-- to enable individual permissions use the following examples -->
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+
+</widget>
