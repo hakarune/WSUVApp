@@ -750,8 +750,8 @@ margin:.6em 15px .8em;
 .ui-content{
 border-width:0;
 overflow:visible;
-overflow-x:hidden;
 padding:15px;
+z-index:1;
 }
 .ui-icon{
 width:18px;
