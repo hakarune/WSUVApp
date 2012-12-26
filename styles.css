@@ -28,7 +28,7 @@
 }
 
 .ui-page {
-	-webkit-backface-visibility: hidden; /*prevents flash of unstyled content... allegedly*/
+	/*-webkit-backface-visibility: hidden; prevents flash of unstyled content... allegedly*/
 	background: linear-gradient(#870511, #54030B);
 	background: -moz-linear-gradient(#870511, #54030B);
 	background: -webkit-linear-gradient(#870511, #54030B);
