@@ -3580,6 +3580,151 @@ $.ajax({
 				<div id='results-art'></div>
 			</div>
 				<script> //faculty
+				var directoryName = 'finance';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-finance').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'finance';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-finance').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'finance';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-finance').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+			<div class="collapsibleDirectory" data-role="collapsible">
+				<H3>Finance</H3>
+				<div id='results-finance'></div>
+			</div>
+				<script> //faculty
 				var directoryName = 'foreign-languages-and-cultures';
 $.ajax({
     type: 'GET',
@@ -4063,740 +4208,2372 @@ $.ajax({
 				<h3>Library</h3>
 				<div id='results-lib'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'management-information-systems';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-mis').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'management-information-systems';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-mis').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'management-information-systems';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-mis').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Management, Information Systems, and Entrepreneurship</H3>
 				<div id='results-mis'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'marketing';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-mkt').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'marketing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-mkt').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Marketing</H3>
-				<!--p>Joeseph A. Cote, Professor<br />
-				Phone: <a href="tel:3605469753">360-546-9753</a><br />
-				Location: VCLS 308 G<br />
-				Email: <a href="mailto:cote@vancouver.wsu.edu">cote@vancouver.wsu.edu</a></p>
-				
-				<p>Ron Pimentel, Clinical Assistant Professor, Associate Director of Professional Sales<br />
-				Phone: <a href="tel:3605469339">360-546-9339</a><br />
-				Location: VCLS 308 L<br />
-				Email: <a href="mailto:ron.pimentel@vancouver.wsu.edu">ron.pimentel@vancouver.wsu.edu</a></p>
-				
-				<p>Alberto Sa Vinhas, Assistant Professor<br />
-				Phone: <a href="tel:3605469146">360-546-9146</a><br />
-				Location: VCLS 308 N<br />
-				Email: <a href="mailto:asavinhas@vancouver.wsu.edu">asavinhas@vancouver.wsu.edu</a></p>
-				
-				<p>U.N. Umesh, Professor<br />
-				Phone: <a href="tel:3605469760">360-546-9760</a><br />
-				Location: VCLS 308 S<br />
-				Email: <a href="mailto:umesh@vancouver.wsu.edu">umesh@vancouver.wsu.edu</a></p>
-				
-				<p>Danette Knowlton, Administrative Manager<br />
-				Phone: <a href="tel:3605469749">360-546-9749</a><br />
-				Location: VCLS 308<br />
-				Email: <a href="mailto:knowlton@vancouver.wsu.edu">knowlton@vancouver.wsu.edu</a></p-->
+				<div id='results-mkt'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'mathematics';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-math').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'mathematics';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-math').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'mathematics';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-math').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Mathematics</H3>
-				<p>Alexander Dimitrov, Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469385">360-546-9385</a><br />
-				Location: VUCB 102 C<br />
-				Email: <a href="mailto:alex.dimitrov@vancouver.wsu.edu">alex.dimitrov@vancouver.wsu.edu</a></p>
-				
-				<p>Paul Krouss Ph.D., Instructor<br />
-				Phone: <a href="tel:3605469384">360-546-9384</a><br />
-				Location:VUCB 102 E<br />
-				Email: <a href="mailto:pkrouss (at) vancouver (dot) wsu (dot) edu">pkrouss (at) vancouver (dot) wsu (dot) edu</a></p>
-				
-				<p>Dr. Eric Mapes, Instructor<br />
-				Phone: <a href="tel:3605469261">360-546-9261</a><br />
-				Location: VUCB 102 D<br />
-				Email: <a href="mailto:eric_mapes@vancouver.wsu.edu">eric_mapes@vancouver.wsu.edu</a></p>
-				
-				<p>Joe Randall, Instructor<br />
-				Phone: <a href="tel:3605469344">360-546-9344</a><br />
-				Location: VUCB 102 B<br />
-				Email: <a href="mailto:joseph_randall@vancouver.wsu.edu">joseph_randall@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. David Slavit<br />
-				Phone: <a href="tel:3605469653">360-546-9653</a><br />
-				Location: VUCB 350<br />
-				Email: <a href="mailto:dslavit@wsu.edu">dslavit@wsu.edu</a></p>
-				
-				<p>Cindy Jager, Adjunct Faculty<br />
-				Phone: <a href="tel:3605469386">360-546-9386</a><br />
-				Location: VLIB 210 H<br />
-				Email: <a href="mailto:cjager@vancouver.wsu.edu">cjager@vancouver.wsu.edu</a></p>
-				
-				<p>Bill Kring, Adjunct Faculty<br />
-				Phone: <a href="tel:3605469386">360-546-9386</a><br />
-				Location: VLIB 210 H<br />
-				Email: <a href="mailto:billkring@vancouver.wsu.edu">billkring@vancouver.wsu.edu</a></p>
-				
-				<p>Brain Manning, Adjunct Faculty<br />
-				Phone: <a href="tel:3605469386">360-546-9386</a><br />
-				Location: VLIB 210 H<br />
-				Email: <a href="mailto:brianmanning@vancouver.wsu.edu">brianmanning@vancouver.wsu.edu</a></p>
-				
-				<p>Arthur Placek, Adjunct Instructor<br />
-				Phone: <a href="tel:7087383307">708-738-3307</a><br />
-				Location: VUCB 102<br />
-				Email: <a href="mailto:aplacek.wsu.edu">aplacek.wsu.edu</a></p>
-				
-				<p>Dr. Rick Simmons, Instructor<br />
-				Phone: <a href="tel:3605469386">360-546-9386</a><br />
-				Location: VLIB 210 H<br />
-				Email: <a href="mailto:rick.simmons@vancouver.wsu.edu">rick.simmons@vancouver.wsu.edu</a></p>
-				
-				<p>Diane DiVittorio, Undergraduate Acedemic Advisor<br />
-				Phone: <a href="tel:3605469478">360-546-9478</a><br />
-				Location: VSCI 230 J<br />
-				Email: <a href="mailto:diane.divittorio@vancouver.wsu.edu">diane.divittorio@vancouver.wsu.edu</a></p>
+				<div id='results-math'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'mechanical-engineering';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-mecheng').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'mechanical-engineering';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-mecheng').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Mechanical Engineering</H3>
-				<p>Linda (Xiaolin) Chen Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469117">360-546-9117</a><br />
-				Location: VECS 301 U<br />
-				Email: <a href="mailto:chenx@vancouver.wsu.edu">chenx@vancouver.wsu.edu</a></p>
-				
-				<p>Hakan Gurocak, Director<br />
-				Phone: <a href="tel:3605469637">360-546-9637</a><br />
-				Location: VWCS 301 V<br />
-				Email: <a href="mailto:hgurocak@vancouver.wsu.edu">hgurocak@vancouver.wsu.edu</a></p>
-				
-				<p>Dave (Dae-Wook) Kim Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469081">360-546-9081</a><br />
-				Location: VSCI 130 J<br />
-				Email: <a href="mailto:kimd@wsu.edu">kimd@wsu.edu</a></p>
-				
-				<p>Yoon Jo Kim Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469184">360-546-9184</a><br />
-				Location: VECS 301 Q<br />
-				Email: <a href="mailto:yoonjo.kim@wsu.edu">yoonjo.kim@wsu.edu</a></p>
-				
-				<p>Hamid Rad Ph.D., Instructor<br />
-				Phone: <a href="tel:3605469208">360-546-9208</a><br />
-				Location: VECS 301 L<br />
-				Email: <a href="mailto:hamidrad@vancouver.wsu.edu">hamidrad@vancouver.wsu.edu</a></p>
-				
-				<p>Stephen A. Solovitz Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469253">360-546-9253</a><br />
-				Location: VECS 301 P<br />
-				Email: <a href="mailto:stevesol@vancouver.wsu.edu">stevesol@vancouver.wsu.edu</a></p>
-				
-				<p>Jie Xu Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469144">360-546-9144</a><br />
-				Location: VECS 301 K<br />
-				Email: <a href="mailto:jie.xu@wsu.edu">jie.xu@wsu.edu</a></p>
-				
-				<p>Wei Xue Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469250">360-546-9250</a><br />
-				Location: VECS 301 W<br />
-				Email: <a href="mailto:wxue@wsu.edu">wxue@wsu.edu</a></p>
-				
-				<p>Troy Dunmire, Engineering Tech<br />
-				Phone: <a href="tel:3605469287">360-546-9287</a><br />
-				Location: VSCI 157<br />
-				Email: <a href="mailto:tdunmire@vancouver.wsu.edu">tdunmire@vancouver.wsu.edu</a></p>
-				
-				<p>Kristine M. Olsen, Administrative Manager<br />
-				Phone: <a href="tel:3605469092">360-546-9092</a><br />
-				Location: VECS 201 E<br />
-				Email: <a href="mailto:kristine.olsen@wsu.edu">kristine.olsen@wsu.edu</a></p>
-				
-				<p>Chad Swanson, Engineering Tech<br />
-				Phone: <a href="tel:3605469481">360-546-9481</a><br />
-				Location: VSCI 157<br />
-				Email: <a href="mailto:chad_swanson@vancouver.wsu.edu">chad_swanson@vancouver.wsu.edu</a></p>
+				<div id='results-mecheng'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'molecular-biosciences';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-molecbio').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'molecular-biosciences';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-molecbio').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'molecular-biosciences';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-molecbio').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Molecular Biosciences</H3>
-				<p>Cynthia Cooper Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469342">360-546-9342</a><br />
-				Location: VSCI 230 F<br />
-				Email: <a href="mailto:cdcooper@vancouver.wsu.edu">cdcooper@vancouver.wsu.edu</a></p>
-				
-				<p>Steve Sylvester, Associate Professor<br />
-				Phone: <a href="tel:3605469724">360-546-9724</a><br />
-				Location: VSCI 230 D<br />
-				Email: <a href="mailto:ssylvester@vancouver.wsu.edu">ssylvester@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Patricia Sayer, Adjunct Faculty<br />
-				Phone: <a href="tel:3605469387">360-546-9387</a><br />
-				Location: VLIB 210 L<br />
-				Email: <a href="mailto:psayer@vancouver.wsu.edu">psayer@vancouver.wsu.edu</a></p>
+				<div id='results-molecbio'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'music';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-music').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'music';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-music').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'music';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-music').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Music</H3>
-				<p>Rob Melton M.A., Adjunct Faculty<br />
-				Phone: <a href="tel:3605211579">360-521-1579</a><br />
-				Location: VMMC 201 P<br />
-				Email: <a href="mailto:rob@opusschoolofmusic.com">rob@opusschoolofmusic.com</a></p>
-				
-				<p>Kimberly Adams, Office Assistant<br />
-				Phone: <a href="tel:3605469425">360-546-9425</a><br />
-				Location: VCLS 208<br />
-				Email: <a href="mailto:kimberly.adams@vancouver.wsu.edu">kimberly.adams@vancouver.wsu.edu</a></p>
+				<div id='results-music'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'neuroscience';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-neuro').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'neuroscience';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-neuro').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'neuroscience';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-neuro').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Neuroscience</H3>
-				<p>Dr. Allison Coffin, Assistant Professor<br />
-				Phone: <a href="tel:3605469748">360-546-9748</a><br />
-				Location: VCLS 208 U<br />
-				Email: <a href="mailto:allison.coffin@wsu.edu">allison.coffin@wsu.edu</a></p>
-				
-				<p>Alexander Dimitrov Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469385">360-546-9385</a><br />
-				Location: VUCB 102 C<br />
-				Email: <a href="mailto:alex.dimitrov@vancouver.wsu.edu">alex.dimitrov@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Michael Morgan, Psycology Professor<br />
-				Phone: <a href="tel:3605469726">360-546-9726</a><br />
-				Location: VCLS 208 G<br />
-				Email: <a href="mailto:mmmorgan@vancouver.wsu.edu">mmmorgan@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Christine Portfors, Associate Professor<br />
-				Phone: <a href="tel:3605469434">360-546-9434</a><br />
-				Location: VCLS 208 M<br />
-				Email: <a href="mailto:portfors@vancouver.wsu.edu">portfors@vancouver.wsu.edu</a></p>
-				
-				<p>Bill Griesar Ph.D., Adjunct Faculty<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 160 G<br />
-				Email: <a href="mailto:bgriesar@pacifier.com">bgriesar@pacifier.com</a></p>
-				
-				<p>Janet DeWitt, Senior Secretary<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 208<br />
-				Email: <a href="mailto:jldewitt@vancouver.wsu.edu">jldewitt@vancouver.wsu.edu</a></p>
-				
-				<p>Diane DiVittorio, Undergraduate Acedemic Advisor<br />
-				Phone: <a href="tel:3605469478">360-546-9478</a><br />
-				Location: VSCI 230 J<br />
-				Email: <a href="mailto:diane.divittorio@vancouver.wsu.edu">diane.divittorio@vancouver.wsu.edu</a></p>
-				
-				<p>Ellecia A. Williams MBA, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469459">360-546-9459</a><br />
-				Location: VSCI 230 C<br />
-				Email: <a href="mailto:ellecia.williams@vancouver.wsu.edu">ellecia.williams@vancouver.wsu.edu</a></p>
+				<div id='results-neuro'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'nursing';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-nursing').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'nursing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-nursing').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'nursing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-nursing').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<h3>Nursing</h3>
-				<p>Linda Dekker MN RN CNM APRN-BC, RN to BSN Program Intructor, advisor and Coordinator for N465 courses<br />
-				Phone: <a href="tel:3605469269">360-546-9269</a><br />
-				Location: VLIB 210 P<br />
-				Email: <a href="mailto:ldekker@vancouver.wsu.edu">ldekker@vancouver.wsu.edu</a></p>
-				
-				<p>Julie DeWitt-Kamada, Clinical Assistant Professor<br />
-				Phone: <a href="tel:3605469349"></a><br />
-				Location: 360-564-9349<br />
-				Email: <a href="mailto:jdewitt@vancouver.wsu.edu">jdewitt@vancouver.wsu.edu</a></p>
-				
-				<p>Dawn Doutrich Ph.D. CNS RN, Associate Professor<br />
-				Phone: <a href="tel:3605469464">360-546-9646</a><br />
-				Location: VLIB 210 W<br />
-				Email: <a href="mailto:doutrich@vancouver.wsu.edu">doutrich@vancouver.wsu.edu</a></p>
-				
-				<p>Linda Eddy Ph.D. RN CPNP, Associate Professor<br />
-				Phone: <a href="tel:3605469625">360-546-9625</a><br />
-				Location: VLIB 210 J<br />
-				Email: <a href="mailto:leddy@vancouver.wsu.edu">leddy@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Ginny W. Guido, Nursing Regional Director and Assistant Dean<br />
-				Phone: <a href="tel:3605469244">360-546-9244</a><br />
-				Location: VLIB 210 N<br />
-				Email: <a href="mailto:ginny_guido@vancouver.wsu.edu">ginny_guido@vancouver.wsu.edu</a></p>
-				
-				<p>Renee Hoeksel Ph.D. RN, RN-BSN Program Assistant Dean<br />
-				Phone: <a href="tel:3605469621">360-546-9621</a><br />
-				Location: VLIB 210 V<br />
-				Email: <a href="mailto:rhoeksel@vancouver.wsu.edu">rhoeksel@vancouver.wsu.edu</a></p>
-				
-				<p>Sarah Kooienga Ph.D. FNP, Assistant Professor<br />
-				Phone: <a href="tel:3605469278">360-546-9278</a><br />
-				Location: VLIB 210 X<br />
-				Email: <a href="mailto:skooienga@vancouver.wsu.edu">skooienga@vancouver.wsu.edu</a></p>
-				
-				<p>Christine Ludwig M.Ed., Clinical Faculty and Elementary Education Program Chair<br />
-				Phone: <a href="tel:3605469479">360-546-9479</a><br />
-				Location: VUCB 343<br />
-				Email: <a href="mailto:cmludwig@vancouver.wsu.edu">cmludwig@vancouver.wsu.edu</a></p>
-				
-				<p>Melody Rasmor RN MSN FNP COHN-S, Clinical Assistant Professor<br />
-				Phone: <a href="tel:3605469619">360-546-9619</a><br />
-				Location: VLIB Office 'K'<br />
-				Email: <a href="mailto:rasmor@vancouver.wsu.edu">rasmor@vancouver.wsu.edu</a></p>
-				
-				<p>Dawn Rondeau, Assistant Professor<br />
-				Phone: <a href="tel:3605469395">360-546-9395</a><br />
-				Location: VLIB 210 Q<br />
-				Email: <a href="mailto:drondeau@vancouver.wsu.edu">drondeau@vancouver.wsu.edu</a></p>
-				
-				<p>Janet Spuck, Senior Instructor<br />
-				Phone: <a href="tel:3605469623">360-546-9623</a><br />
-				Location: VLIB 210 E<br />
-				Email: <a href="mailto:jspuck@vancouver.wsu.edu">jspuck@vancouver.wsu.edu</a></p>
-				
-				<p>Kathleen Johns, Office Assistant<br />
-				Phone: <a href="tel:3605469752">360-546-9752</a><br />
-				Location: VLIB 210<br />
-				Email: <a href="mailto:kathleen.johns@vancouver.wsu.edu">kathleen.johns@vancouver.wsu.edu</a></p>
-				
-				<p>Barbara M. Maddox, Clinical Coordinator<br />
-				Phone: <a href="tel:3605469164">360-546-9164</a><br />
-				Location: VLIB 210 Y<br />
-				Email: <a href="mailto:barbara.maddox@vancouver.wsu.edu">barbara.maddox@vancouver.wsu.edu</a></p>
-				
-				<p>Jenny Schrock, Academic Coordinator<br />
-				Phone: <a href="tel:3605469618">360-546-9618</a><br />
-				Location: VLIB 210 C<br />
-				Email: <a href="mailto:schrock@vancouver.wsu.edu">schrock@vancouver.wsu.edu</a></p>
-				
-				<p>Susan Shaw, Office Supposrt Supervisor<br />
-				Phone: <a href="tel:3605469473">360-546-9473</a><br />
-				Location: VLIB 210<br />
-				Email: <a href="mailto:susan.shaw@vancouver.wsu.edu">susan.shaw@vancouver.wsu.edu</a></p>
+				<div id='results-nursing'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'philosophy';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-philosophy').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'philosophy';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-philosophy').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'philosophy';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-philosophy').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Philosophy</H3>
-				<p>John Holmes Ph.D., Adjunct Professor<br />
-				Phone: <a href="tel:5418522898">541-852-2898</a><br />
-				Location: VFSC 100<br />
-				Email: <a href="mailto:jholmes23@vancouver.wsu.edu">jholmes23@vancouver.wsu.edu</a></p>
-				
-				<p>Kimberly Adams, Office Assistant<br />
-				Phone: <a href="tel:3605469425">360-546-9425</a><br />
-				Location: VCLS 208<br />
-				Email: <a href="mailto:kimberly.adams@vancouver.wsu.edu">kimberly.adams@vancouver.wsu.edu</a></p>
+				<div id='results-philosophy'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'political-science';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-polisci').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'political-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-polisci').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'political-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-polisci').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'political-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-polisci').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Political Science</H3>
-				<p>Dana Lee Baker Ph.D., Associate Professor and Director of Program of Public Affairs<br />
-				Phone: <a href="tel:3605469125">360-546-9125</a><br />
-				Location: VMMC 202 N<br />
-				Email: <a href="mailto:bakerdl@vancouver.wsu.edu">bakerdl@vancouver.wsu.edu</a></p>
-				
-				<p>Carolyn Long Ph.D., Associate Professor of Political Science and Associate Director of Liberal Arts<br />
-				Phone: <a href="tel:3605469737">360-546-9737</a><br />
-				Location: VMMC 102 A<br />
-				Email: <a href="mailto:coelong@vancouver.wsu.edu">coelong@vancouver.wsu.edu</a></p>
-				
-				<p>Mark Stephen Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469467">360-546-9467</a><br />
-				Location: VCLS 208 Q<br />
-				Email: <a href="mailto:stephanm@vancouver.wsu.edu">stephanm@vancouver.wsu.edu</a></p>
-				
-				<p>Paul Thiers Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469466">360-546-9466</a><br />
-				Location: VMMC 102 S<br />
-				Email: <a href="mailto:pthiers@vancouver.wsu.edu">pthiers@vancouver.wsu.edu</a></p>
-				
-				<p>James C. Foster, Adjunct Professor<br />
-				Phone: <a href="tel:3605469097">360-546-9097</a><br />
-				Location: VMMC 210<br />
-				Email: <a href="mailto:james.foster@osucascades.edu">james.foster@osucascades.edu</a></p>
-				
-				<p>Travis Miller, Adjunct Professor<br />
-				Phone: <a href="tel:3605469445">360-546-9445</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:travis.l.miller@vancouver.wsu.edu">travis.l.miller@vancouver.wsu.edu</a></p>
-				
-				<p>Annette Bradstreet, Program Assistant<br />
-				Phone: <a href="tel:3605469640">360-546-9640</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:annette.bradstreet@vancouver.wsu.edu">annette.bradstreet@vancouver.wsu.edu</a></p>
-				
-				<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-				<p>Lindy Volk, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469475">360-546-9745</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:isakamoto@vancouver.wsu.edu">isakamoto@vancouver.wsu.edu</a></p>
-				
-				<p>Ellen Rogers MBA MPA, Graduate Student Instructor<br />
-				Phone: <a href="tel:3609214235">360-921-4235</a><br />
-				Location: VMMC 207<br />
-				Email: <a href="mailto:ellen.rogers@email.wsu.edu">ellen.rogers@email.wsu.edu</a></p>
+				<div id='results-polisci'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'professional-writing';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-profwr').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'professional-writing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-profwr').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'professional-writing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-profwr').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'professional-writing';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-profwr').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Professional Writing</H3>
-				<p>David Menchaca, Assistant Professor<br />
-				Phone: <a href="tel:3605469176">360-546-9176</a><br />
-				Location: VMMC 102 F<br />
-				Email: <a href="mailto:menchaca@wsu.edu">menchaca@wsu.edu</a></p>
-				
-				<p>Wendy Olson, Assistant Professor of English and Director of Composition<br />
-				Phone: <a href="tel:3605469513">360-546-9513</a><br />
-				Location: VMMC 102 K<br />
-				Email: <a href="mailto:wmolson@vancouver.wsu.edu">wmolson@vancouver.wsu.edu</a></p>
-				
-				<p>Logan Forehand, Instructor<br />
-				Phone: <a href="tel:5033145683">503-314-5683</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:logan.forehand@wsu.edu">logan.forehand@wsu.edu</a></p>
-				
-				<p>Ellen C. Franklin M.A. M.A., Adjunct Faculty<br />
-				Phone: <a href="tel:3605469441">360-564-9441</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:efranklin@vancouver.wsu.edu">efranklin@vancouver.wsu.edu</a></p>
-				
-				<p>Marie Naughton, Adjunct Faculty<br />
-				Phone: <a href="tel:5033516122">503-351-6122</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:mnaughton@vancouver.wsu.edu">mnaughton@vancouver.wsu.edu</a></p>
-				
-				<p>Teresa Phimister, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469664">360-546-9664</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:phimister@vancouver.wsu.edu">phimister@vancouver.wsu.edu</a></p>
-				
-				<p>Michael Sutcliffe, Graduate Student<br />
-				Phone: <a href="tel:3605469227">360-546-9227</a><br />
-				Location: VMMC 207<br />
-				Email: <a href="mailto:msut@wsu.edu">msut@wsu.edu</a></p>
+				<div id='results-profwr'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'psychology';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-psych').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'psychology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-psych').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'psychology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-psych').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'psychology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-psych').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Psychology</H3>
-				<p>Dr. Art Blume, Professor<br />
-				Phone: <a href="tel:3605469414">360-546-9414</a><br />
-				Location: VCLS 208 L<br />
-				Email: <a href="mailto:art.blume@vancouver.wsu.edu">art.blume@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Allison Coffin, Assistant Professor<br />
-				Phone: <a href="tel:3605469748">360-546-9748</a><br />
-				Location: VCLS 208 U<br />
-				Email: <a href="mailto:allison.coffin@wsu.edu">allison.coffin@wsu.edu</a></p>
-				
-				<p>Dr. Armando X. Estrada, Assistant Professor<br />
-				Phone: <a href="tel:3605469716">360-546-9716</a><br />
-				Location: VCLS 280 C<br />
-				Email: <a href="mailto:aestrada1@vancouver.wsu.edu">aestrada1@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. J.P. Garofalo, Associate Proffesor and Associate Chair<br />
-				Phone: <a href="tel:3605469717">360-546-9717</a><br />
-				Location: VCLS 208 E<br />
-				Email: <a href="mailto:jgarofalo@vancouver.wsu.edu">jgarofalo@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Randall Kleinhesselink, Associate Professor<br />
-				Phone: <a href="tel:3605469723">360-546-9723</a><br />
-				Location: VCLS 208 U<br />
-				Email: <a href="mailto:rkleinhesselink@vancouver.wsu.edu">rkleinhesselink@vancouver.wsu.edu</a></p>
-				
-				<p>Stephen Lakatos Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469743">360-546-9743</a><br />
-				Location: VCLS 208 A<br />
-				Email: <a href="mailto:lakatos@vancouver.wsu.edu">lakatos@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Michael Morgan, Professor<br />
-				Phone: <a href="tel:3605469726">360-564-9726</a><br />
-				Location: VCLS 208 G<br />
-				Email: <a href="mailto:mmmorgan@vancouver.wsu.edu">mmmorgan@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Tahira M. Probst, Professor<br />
-				Phone: <a href="tel:3605469746">360-546-9746</a><br />
-				Location: VCLS 208 J<br />
-				Email: <a href="mailto:probst@vancouver.wsu.edu">probst@vancouver.wsu.edu</a></p>
-				
-				<p>Karen Schmaling Ph.D., Vice Chancellor for Acedemic Affairs<br />
-				Phone: <a href="tel:3605469583">360-546-9583</a><br />
-				Location: VADM 208<br />
-				Email: <a href="mailto:Karen.Schmaling@vancouver.wsu.edu">Karen.Schmaling@vancouver.wsu.edu</a></p>
-				
-				<p>Elizabeth Soliday Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469727">360-546-9727</a><br />
-				Location: VCLS 208 P<br />
-				Email: <a href="mailto:esoliday@vancouver.wsu.edu">esoliday@vancouver.wsu.edu</a></p>
-				
-				<p>Elizabeth Whitchurch Ph.D., Research Assistant<br />
-				Phone: <a href="tel:3605469090">360-546-9090</a><br />
-				Location: VCLS 208<br />
-				Email: <a href="mailto:liz.whitchurch@wsu.edu">liz.whitchurch@wsu.edu</a></p>
-				
-				<p>Katie Witkiewitz Ph.D., Assistant Professor<br />
-				Phone: <a href="tel:3605469403">360-546-9403</a><br />
-				Location: VCLS 208 R<br />
-				Email: <a href="mailto:katie.witkiewitz@vancouver.wsu.edu">katie.witkiewitz@vancouver.wsu.edu</a></p>
-				
-				<p>Kathryn Becker Blease, Adjunct Faculty<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 160 G<br />
-				Email: <a href="mailto:kbecker-blease@vancouver.wsu.edu">kbecker-blease@vancouver.wsu.edu</a></p>
-				
-				<p>Enrique Brouwer M.A., Adjunct Faculty<br />
-				Phone: <a href="tel:5857297846">585-729-7846</a><br />
-				Location: VCLS Main Office<br />
-				Email: <a href="mailto:enrique.brouwer@vancouver.wsu.edu">enrique.brouwer@vancouver.wsu.edu</a></p>
-				
-				<p>Bill Griesar Ph.D., Adjunct Faculty<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 160 G<br />
-				Email: <a href="mailto:bgriesar@pacifier.com">bgriesar@pacifier.com</a></p>
-				
-				<p>Alyssa Dart, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469451">360-546-9451</a><br />
-				Location: VSCI 103 D<br />
-				Email: <a href="mailto:darta@vancouver.wsu.edu">darta@vancouver.wsu.edu</a></p>
-				
-				<p>Janet DeWitt, Senior Secretary<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 208<br />
-				Email: <a href="mailto:jldewitt@vancouver.wsu.edu">jldewitt@vancouver.wsu.edu</a></p>
-				
-				<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-				<p>Jill Gjerde M.A., Graduate Student<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 208 V<br />
-				Email: <a href="mailto:jill_gjerde@wsu.edu">jill_gjerde@wsu.edu</a></p>
-				
-				<p>Lixin Jiang, Graduate Student<br />
-				Phone: <a href="tel:3605469720">360-546-9720</a><br />
-				Location: VCLS 108<br />
-				Email: <a href="mailto:lixin.jiang@email.wsu.edu">lixin.jiang@email.wsu.edu</a></p>
-				
-				<p>Jason Potwora, Graduate Student<br />
-				Phone: <a href="tel:3605469404">360-546-9404</a><br />
-				Location: VCLS 108<br />
-				Email: <a href="mailto:Jpotwora@wsu.edu">Jpotwora@wsu.edu</a></p>
+				<div id='results-psych'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'public-affairs';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-pubaff').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'public-affairs';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-pubaff').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'public-affairs';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-pubaff').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'public-affairs';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-pubaff').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Public Affairs</H3>
-				<p>Dana Lee Baker Ph.D., Associate Professor and Director of Program of Public Affairs<br />
-				Phone: <a href="tel:3605469125">360-546-9125</a><br />
-				Location: VMMC 202 N<br />
-				Email: <a href="mailto:bakerdl@vancouver.wsu.edu">bakerdl@vancouver.wsu.edu</a></p>
-				
-				<p>M. Jahi Chappell Ph.D., Assistant Professor of Environmental Science and Justice<br />
-				Phone: <a href="tel:3605469413">360-546-9413</a><br />
-				Location: VSCI 230 P<br />
-				Email: <a href="mailto:m.jahi.chappell@vancouver.wsu.edu">m.jahi.chappell@vancouver.wsu.edu</a></p>
-				
-				<p>Laurie A. Drapela Ph.D., Associate Professor of Criminal Justice<br />
-				Phone: <a href="tel:3605469485">360-546-9485</a><br />
-				Location: VCLS 208 N<br />
-				Email: <a href="mailto:ldrapela@vancouver.wsu.edu">ldrapela@vancouver.wsu.edu</a></p>
-				
-				<p>Daniel Jaffee Ph.D., Assistant Professor of Sociology<br />
-				Phone: <a href="tel:3605469279">360-546-9279</a><br />
-				Location: VMMC 102 U<br />
-				Email: <a href="mailto:jaffee@wsu.edu">jaffee@wsu.edu</a></p>
-				
-				<p>Carolyn Long Ph.D., Associate Professor of Political Science and Associate Director of Liberal Arts<br />
-				Phone: <a href="tel:3605469737">360-546-9737</a><br />
-				Location: VMMC 102 A<br />
-				Email: <a href="mailto:coelong@vancouver.wsu.edu">coelong@vancouver.wsu.edu</a></p>
-				
-				<p>Mark Stephan Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469467">360-546-9467</a><br />
-				Location: VCLS 208 Q<br />
-				Email: <a href="mailto:stephanm@vancouver.wsu.edu">stephanm@vancouver.wsu.edu</a></p>
-				
-				<p>Thomas M. Tripp, Professor of Management<br />
-				Phone: <a href="tel:3605469754">360-546-9754</a><br />
-				Location: VCLS 308 E<br />
-				Email: <a href="mailto:ttripp@vancouver.wsu.edu">ttripp@vancouver.wsu.edu</a></p>
-				
-				<p>Darryl S. Wood Ph.D., Associte Professor<br />
-				Phone: <a href="tel:3605469255">360-546-9255</a><br />
-				Location: VMMC 201 W<br />
-				Email: <a href="mailto:darrlywood@vancouver.wsu.edu">darrlywood@vancouver.wsu.edu</a></p>
-				
-				<p>Annette Bradstreet, Program Assistant<br />
-				Phone: <a href="tel:3605469640">360-546-9640</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:annette.bradstreet@vancouver.wsu.edu">annette.bradstreet@vancouver.wsu.edu</a></p>
-				
-				<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-								<p>Lindy Volk, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469475">360-546-9745</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:isakamoto@vancouver.wsu.edu">isakamoto@vancouver.wsu.edu</a></p>
-				
-				<p>Ellen Rogers MBA MPA, Graduate Student Instructor<br />
-				Phone: <a href="tel:3609214235">360-921-4235</a><br />
-				Location: VMMC 207<br />
-				Email: <a href="mailto:ellen.rogers@email.wsu.edu">ellen.rogers@email.wsu.edu</a></p>
+				<div id='results-pubaff'></div>
 			</div>
-			
-			<div class="collapsibleDirectory" data-role="collapsible">
-				<H3>Social and Environmental Justice</H3>
-				<p>M. Jahi Chappell Ph.D., Assistant Professor of Environmental Science and Justice<br />
-				Phone: <a href="tel:3605469413">360-546-9413</a><br />
-				Location: VSCI 230 P<br />
-				Email: <a href="mailto:m.jahi.chappell@vancouver.wsu.edu">m.jahi.chappell@vancouver.wsu.edu</a></p>
-				
-				<p>Marcelo Diversi Ph.D., Assistant Professor of Human Development<br />
-				Phone: <a href="tel:3605469170">360-546-9170</a><br />
-				Location: VMCB 203<br />
-				Email: <a href="mailto:diversi@vancouver.wsu.edu">diversi@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Candice Goucher, Professor<br />
-				Phone: <a href="tel:3605469469">360-546-9469</a><br />
-				Location: VMMC 202 K<br />
-				Email: <a href="mailto:cgoucher@vancouver.wsu.edu">cgoucher@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Desiree Hellegers, Associate Professor, Director, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469643">360-546-9643</a><br />
-				Location: VMMC 202 V<br />
-				Email: <a href="mailto:desiree.hellegers@vancouver.wsu.edu">desiree.hellegers@vancouver.wsu.edu</a></p>
-				
-				<p>Daniel Jaffee Ph.D., Assistant Professor of Sociology<br />
-				Phone: <a href="tel:3605469279">360-546-9279</a><br />
-				Location: VMMC 102 U<br />
-				Email: <a href="mailto:jaffee@wsu.edu">jaffee@wsu.edu</a></p>
-				
-				<p>Jorge Guadalupe Liz&#225rraga, Instructor<br />
-				Phone: <a href="tel:3605469284">360-546-9284</a><br />
-				Location: VMMC<br />
-				Email: <a href="mailto:jlizarraga@vancouver.wsu.edu">jlizarraga@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Laurie Mercier, Distinguished Professor<br />
-				Phone: <a href="tel:3605469646">360-546-9646</a><br />
-				Location: VMMC 102 V<br />
-				Email: <a href="mailtolmercier@vancouver.wsu.edu:">lmercier@vancouver.wsu.edu</a></p>
-				
-				<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-				<p>Pavithra Narayanan, Associate Professor<br />
-				Phone: <a href="tel:3605469732">360-546-9732</a><br />
-				Location: VMMC 202 F<br />
-				Email: <a href="mailto:pavitraa@vancouver.wsu.edu">pavitraa@vancouver.wsu.edu</a></p>
-				
-				<p>Wendy Olson, Assistant English Professor and Director of Composition<br />
-				Phone: <a href="tel:3605469513">360-546-9513</a><br />
-				Location: VMMC 202 F<br />
-				Email: <a href="mailto:wmolson@vancouver.wsu.edu">wmolson@vancouver.wsu.edu</a></p>
-				
-				<p>Dr. Sue Peabody, Professor and Associate Chair<br />
-				Phone: <a href="tel:3605469647">360-546-9647</a><br />
-				Location: VMMC 202 D<br />
-				Email: <a href="mailto:speabody@vancouver.wsu.edu">speabody@vancouver.wsu.edu</a></p>
-				
-				<p>Carol Siegel, Professor<br />
-				Phone: <a href="tel:3605469641">360-546-9641</a><br />
-				Location: VMMC SS202<br />
-				Email: <a href="mailto:siegel@vancouver.wsu.edu">siegel@vancouver.wsu.edu</a></p>
-				
-				<p>Mark Stephan Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469467">360-546-9467</a><br />
-				Location: VCLS 208 Q<br />
-				Email: <a href="mailto:stephanm@vancouver.wsu.edu">stephanm@vancouver.wsu.edu</a></p>
-				
-				<p>Brian Tissot Ph.D., Interim Director and Professor<br />
-				Phone: <a href="tel:3605469611">360-546-9611</a><br />
-				Location: VSCI 230 M<br />
-				Email: <a href="mailto:tissot@vancouver.wsu.edu">tissot@vancouver.wsu.edu</a></p>
-			</div>
-			
+				<script> //faculty
+				var directoryName = 'social-science';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-socscience').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'social-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-socscience').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'social-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-socscience').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'social-science';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-socscience').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Social Science</H3>
-				<p>Dr. Sue Peabody, Professor and Associate Chair<br />
-				Phone: <a href="tel:3605469647">360-546-9647</a><br />
-				Location: VMMC 202 D<br />
-				Email: <a href="mailto:speabody@vancouver.wsu.edu">speabody@vancouver.wsu.edu</a></p>
-				
-				<p>Mark Stephan Ph.D., Associate Professor<br />
-				Phone: <a href="tel:3605469467">360-546-9467</a><br />
-				Location: VCLS 208 Q<br />
-				Email: <a href="mailto:stephanm@vancouver.wsu.edu">stephanm@vancouver.wsu.edu</a></p>
-				
-				<p>Darryl S. Wood Ph.D., Associte Professor<br />
-				Phone: <a href="tel:3605469255">360-546-9255</a><br />
-				Location: VMMC 201 W<br />
-				Email: <a href="mailto:darrlywood@vancouver.wsu.edu">darrlywood@vancouver.wsu.edu</a></p>
-				
-								<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-				<p>Teresa Phimister, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469664">360-546-9664</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:phimister@vancouver.wsu.edu">phimister@vancouver.wsu.edu</a></p>
-				
-				<p>Lindy Volk, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469475">360-546-9745</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:isakamoto@vancouver.wsu.edu">isakamoto@vancouver.wsu.edu</a></p>
+				<div id='results-socscience'></div>
 			</div>
-			
+				<script> //faculty
+				var directoryName = 'sociology';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'facdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-sociology').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
+				<script> //staff
+var directoryName = 'sociology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var staffMember = this;
+
+                $(staffMember).each(function (indexFC) {
+
+                    var staffMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var staffMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var staffMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var staffMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + staffMemberTitleUrl + '">' + staffMemberTitleTEMP + '</a>';
+
+                    var staffMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var staffMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var staffMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var staffMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + staffMemberImage + '" /><div class="dynamicName">' + staffMemberTitle + '</div><br /><br /><div class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</div></div>';
+
+                    $('#results-sociology').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //adjuncts
+var directoryName = 'sociology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'adjunctdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var adjMember = this;
+
+                $(adjMember).each(function (indexFC) {
+
+                    var adjMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var adjMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var adjMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var adjMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + adjMemberTitleUrl + '">' + adjMemberTitleTEMP + '</a>';
+
+                    var adjMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var adjMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var adjMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var adjMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + adjMemberImage + '" /><div class="dynamicName">' + adjMemberTitle + '</div><br /><br /><div class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</div></div>';
+
+                    $('#results-sociology').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
+				<script> //graduates
+var directoryName = 'sociology';
+
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'graddir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results-anth').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var gradMember = this;
+
+                $(gradMember).each(function (indexFC) {
+
+                    var gradMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage img').attr('src');
+
+                    var gradMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var gradMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var gradMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + gradMemberTitleUrl + '">' + gradMemberTitleTEMP + '</a>';
+
+                    var gradMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var gradMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var gradMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var gradMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<div id="dynamicResults"><img class="dynamicThumb" src="' + gradMemberImage + '" /><div class="dynamicName">' + gradMemberTitle + '</div><br /><br /><div class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</div></div>';
+
+                    $('#results-sociology').append(divObject);
+                });
+            });
+        }
+    }
+	
+});
+
+</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Sociology</H3>
-				<p>Daniel Jaffee Ph.D., Assistant Professor of Sociology<br />
-				Phone: <a href="tel:3605469279">360-546-9279</a><br />
-				Location: VMMC 102 U<br />
-				Email: <a href="mailto:jaffee@wsu.edu">jaffee@wsu.edu</a></p>
-				
-				<p>Alair MacLean, Professor<br />
-				Phone: <a href="tel:3605469177">360-546-9177</a><br />
-				Location: VMMC 202 H<br />
-				Email: <a href="mailto:alair@vancouver.wsu.edu">alair@vancouver.wsu.edu</a></p>
-				
-				<p>Clayton Mosher, Associate Professor<br />
-				Phone: <a href="tel:3605469439">360-546-9439</a><br />
-				Location: VMMC 202 B<br />
-				Email: <a href="mailto:cmosher@vancouver.wsu.edu">cmosher@vancouver.wsu.edu</a></p>
-				
-				<p>Beth Tarasawa, Assistant Professor<br />
-				Phone: <a href="tel:3605469537">360-564-9537</a><br />
-				Location: VCLS 208 C<br />
-				Email: <a href="mailto:beth.tarasawa@vancouver.wsu.edu">beth.tarasawa@vancouver.wsu.edu</a></p>
-				
-				<p>Amy S. Wharton, Director of Liberal Arts and Professor of Sociology<br />
-				Phone: <a href="tel:3605469617">360-546-9617</a><br />
-				Location: VMMC 202 A<br />
-				Email: <a href="mailto:wharton@vancouver.wsu.edu">wharton@vancouver.wsu.edu</a></p>
-				
-				<p>Amy G. Szemere, Lecturer<br />
-				Phone: <a href="tel:5032267298">503-226-7398</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:szemere@vancouver.wsu.edu">szemere@vancouver.wsu.edu</a></p>
-				
-				<p>Annette Bradstreet, Program Assistant<br />
-				Phone: <a href="tel:3605469640">360-546-9640</a><br />
-				Location: VMMC 102 P<br />
-				Email: <a href="mailto:annette.bradstreet@vancouver.wsu.edu">annette.bradstreet@vancouver.wsu.edu</a></p>
-				
-				<p>Shellynda Michalek, Acedemic Coordinator Support<br />
-				Phone: <a href="tel:3605469106">360-546-9106</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:michaleksi@vancouver.wsu.edu">michaleksi@vancouver.wsu.edu</a></p>
-				
-				<p>Lindy Volk, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469475">360-546-9745</a><br />
-				Location: VSCI 130<br />
-				Email: <a href="mailto:isakamoto@vancouver.wsu.edu">isakamoto@vancouver.wsu.edu</a></p>
-				
-				<p>Meredith Williams M.A., Graduate Student Instructor<br />
-				Phone: <a href="tel:3605469788">360-546-9788</a><br />
-				Location: VMMC 207<br />
-				Email: <a href="mailto:meredith.williams@email.wsu.edu">meredith.williams@email.wsu.edu</a></p>
+				<div id='results-sociology'></div>
 			</div>
 		</div>
 		</div><!-- end collapsible set -->
