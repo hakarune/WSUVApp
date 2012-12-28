@@ -1732,9 +1732,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -3860,31 +3865,36 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
+                
+                if(indexFM===0){return;}
+                
+                var libraryMember = this;
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
+                $(libraryMember).each(function (indexFC) {
 
-                var facultyMember = this;
+                    var libraryMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
 
-                $(facultyMember).each(function (indexFC) {
+                    var libraryMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
 
-                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+                    var libraryMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
 
-                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+                    var libraryMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + libraryMemberTitleUrl + '">' + libraryMemberTitleTEMP + '</a>';
 
-                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+                    var libraryMemberPosition = $(this).find('.views-field-field-position-value span').text();
 
-                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+                    var libraryMemberPhone = $(this).find('.views-field-field-phone-value span').text();
 
-                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+                    var libraryMemberBuilding = $(this).find('.views-field-field-building-value span').text();
 
-                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+                    var libraryMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
 
-                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+                    var libraryMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var libraryMemberEmail = '<a href="mailto:' + libraryMemberEmailTEMP + '">' + libraryMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
-
-                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
-                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
-
-                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+                    var divObject = '<p><img class="dynamicThumb" src="' + libraryMemberImage + '" /><span class="dynamicName">' + libraryMemberTitle + '</span><br /><span class="dynamicText">' + libraryMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + libraryMemberPhone + '">' + libraryMemberPhone + '</a> <br />' + "Location: " + libraryMemberBuilding + " " + libraryMemberRoom + '<br />' + libraryMemberEmail + '</span></p>';
 
                     $('#results-lib').append(divObject);
                 });
@@ -6300,9 +6310,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -6350,9 +6365,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -6399,9 +6419,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -6441,7 +6466,7 @@ $.ajax({
 				var directoryName = 'student-diversity';
 $.ajax({
     type: 'GET',
-    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
     dataType: 'xml',
     success: function (data) {
         if(data) {
@@ -6449,9 +6474,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -6490,7 +6520,7 @@ $.ajax({
 				var directoryName = 'student-involvement';
 $.ajax({
     type: 'GET',
-    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
     dataType: 'xml',
     success: function (data) {
         if(data) {
@@ -6498,9 +6528,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
@@ -6539,7 +6574,7 @@ $.ajax({
 				var directoryName = 'student-resource-center';
 $.ajax({
     type: 'GET',
-    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
     dataType: 'xml',
     success: function (data) {
         if(data) {
@@ -6547,9 +6582,14 @@ $.ajax({
             var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
-
+                
+                if(indexFM===0){return;}
+                
                 var facultyMember = this;
-
+                
+                console.log('The next line are the jQuery Objects returned');
+                console.log( this );
+                
                 $(facultyMember).each(function (indexFC) {
 
                     var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
