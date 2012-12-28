@@ -549,3 +549,59 @@ textarea {
 		width: 50%;
 	}
 }
+
+/*************/
+/* Directory */
+/*************/
+
+ #dynamicResults {
+  
+  width: 480px;
+  height: 120px;
+  margin-top: 20px; /* relative to gray  background */
+  margin-left: 20px;  /* relative to gray background */
+}
+
+.dynamicThumb{
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding-right: 25px;
+  padding-bottom: 15px;  /* Prevent email from floating allll the way left when Name is two lines */
+  /* For example, see Dr Laurie Mercier at History Directoy and note email is much lower */
+}
+
+
+.dynamicName {
+  position: relative;
+  float: left;
+  font-family: "arial";
+  font-size: 15px;
+  line-height: 18px;
+  color: white;
+
+}
+
+.dynamicText {
+  position: relative;
+  font-family: "arial";
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: -15px; /* Compensates for br br in dynamic html for .dynamicName */
+  color: white;
+}
+
+a{ 
+  color: #2489CE; /*  Firefox ColorZilla Plugin */
+}
+a:hover {
+  color: gray;
+}
+
+/* Late to the party is the mini email icon */
+.iconEmail {
+  background: url("http://directory.vancouver.wsu.edu/sites/all/modules/extlink/mailto.png") no-repeat scroll right center transparent;
+  padding-right: 12px;
+}
+
+#results-chdev p:first{display:none; visibility:hidden;}
