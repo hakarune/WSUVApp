@@ -1,12 +1,30 @@
+@font-face {
+	font-family: 'StoneSans';
+	src: url('StoneSansSCITCTTMedium.ttf');
+}
+
+.highlight {
+	color: green;
+}
+
 .header {
 	text-align: center;
 	min-height: 40px;
 	font-size: 30px;
-	font-family: "Stone Sans ITC TT";
+	font-family: "StoneSans";
 }
 
 .header .ui-btn-text {
 	color: white;
+}
+
+body {
+	background: linear-gradient(#870511, #54030B) !important;
+	background: -moz-linear-gradient(#870511, #54030B) !important;
+	background: -webkit-linear-gradient(#870511, #54030B) !important;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7C0510), to(#7C0510)) !important;
+	background: -o-linear-gradient(#870511, #54030B) !important;
+	text-shadow: none;
 }
 
 /******************/
@@ -28,7 +46,6 @@
 }
 
 .ui-page {
-	/*-webkit-backface-visibility: hidden; prevents flash of unstyled content... allegedly*/
 	background: linear-gradient(#870511, #54030B);
 	background: -moz-linear-gradient(#870511, #54030B);
 	background: -webkit-linear-gradient(#870511, #54030B);
@@ -46,7 +63,7 @@
 }
 
 
-#departmentOffices .ui-listview-inset .ui-li-desc {
+#departmentOffices .ui-listview-inset .ui-li-desc, #studentAffairs .ui-listview-inset .ui-li-desc, #aswsuvOsi .ui-listview-inset .ui-li-desc {
 	color: white;
 	font-size: 15px;
 }
@@ -81,9 +98,9 @@
 	margin: 0 -8px;
 }
 
-/************/
-/** Styles **/
-/************/
+/********************/
+/** General Styles **/
+/********************/
 
 #aswsuvLong2 {
 	display: block;
@@ -107,11 +124,11 @@
 }
 
 #welcome .copyright {
+	clear: both;
 	text-align: center;
 	border-top: 8px solid gray;
 	color: white;
 	width: 100%;
-	background-color: #870511;
 	margin: -20px 0 5px 0;
 }
 
@@ -120,37 +137,71 @@
 	border-top: 8px solid gray;
 	color: white;
 	width: 100%;
-	margin: 15px 0 0 -15px;
+	margin: 0 0 0 -15px;
 	padding-right: 30px;
 }
 
 .eventsAndNav {
+	padding: 0;
+	list-style: none;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 516px;
+	height: 440px
+}
+
+.eventsAndNav a {
 	display: block;
-	margin: 20px 100px 40px 0;
-	text-shadow: none;
-	max-width: 88%;
-	color: #ddd;
-	min-height: 300px;
+	float: left;
+	padding: 0;
+	margin: 20px 10px 20px 10px;
+	width: 152px;
+	height: 180px;
 }
 
-.eventsAndNav div {
-	display: inline;
-	margin: 0 auto 0 10%;
-	
+.eventsAndNav #mapIcon {	
+	background-image: url(images/mapIconSprite.png);
 }
 
-.eventsAndNav img {
-	max-width: 100%;
+.eventsAndNav #eventsSprite {	
+	background-image: url(images/eventsIconSprite.png);
 }
 
-.counterWrapper {
+.eventsAndNav #directoryIcon {
+	background-image: url(images/directoryIconSprite.png);
+}
+
+.eventsAndNav #backpackIcon {
+	background-image: url(images/backpackIconSprite.png);
+}
+
+.eventsAndNav #aboutIcon {
+	background-image: url(images/aboutIconSprite.png);
+}
+
+.eventsAndNav #connectIcon {
+	background-image: url(images/connectIconSprite.png);
+}
+
+.eventsAndNav #mapIcon, .eventsAndNav #eventIcon, .eventsAndNav #directoryIcon, .eventsAndNav #backpackIcon, .eventsAndNav #aboutIcon, .eventsAndNav #connectIcon {
+	background-position: 0 0;
+	text-indent: -9999px;
+}
+
+.eventsAndNav #mapIcon:active, .eventsAndNav #eventsSprite:active, .eventsAndNav #directoryIcon:active, .eventsAndNav #backpackIcon:active, .eventsAndNav #aboutIcon:active, .eventsAndNav #connectIcon:active {
+	background-position: 0 180px;
+}
+
+.eventsAndNav {
 	position: relative;
 }
 
 #eventsCounter {
 	position: absolute;
-	top: -170px;
-	left: 80px;
+	top: 5px;
+	left: 115px;
 	z-index: 500;
 	color: black;
 	font-size: 50px;
@@ -160,9 +211,10 @@
 }
 
 #mapHeader {
-		font-size: 30px;
-		text-align: center;
-	}
+	font-size: 30px;
+	text-align: center;
+	font-family: "StoneSans";
+}
 	
 #mapHeader .ui-btn-text {
 	color: white;
@@ -199,7 +251,7 @@
 }
 
 .alternate { /*style for every other list item*/
-	background-color: #bbb;
+	background-color: #3b3b3b;
 	text-shadow: none;
 }
 
@@ -232,7 +284,7 @@ p {
 	color: white;
 	position: absolute;
 	left: 10%;
-	top: 30%;
+	top: 0;
 	margin-bottom: 2%;
 	border-radius: 10px;
 }
@@ -256,7 +308,7 @@ textarea {
 }
 
 #notes {
-	color: black;
+	color: #B6BCBF;
 	font-size: 20px;
 }
 
@@ -275,30 +327,30 @@ textarea {
 	color: white;
 }
 
-.collapsibleDirectory {
-	color: black;
-	padding: 0 15px;
-}
-
 .ui-page .ui-listview-filter {
 	margin: 0 10px;
 }
 
 #aswsuvOsi, #foodShoppingPanel, #servicesPanel, #about {
-	color: black;
+	color: #B6BCBF;
 	font-size: 18px;
 }
 
 #aswsuvOsi h3, #foodShoppingPanel h3, #servicesPanel h3, #about h4 {
-	color: #ddd;
+	color: #f0f0f0;
+}
+
+#aswsuvOsi h3 {
+	display: inline;
 }
 
 .info {
-	color: black;
+	color: #B6BCBF;
 }
 
 .info h4 {
 	display: inline;
+	color: black;
 }
 
 .gallery img {
@@ -309,16 +361,24 @@ textarea {
 	margin-bottom: 10px;
 }
 
+.gridview {
+	margin: 0 auto 0 5%;
+}
+
 .gridview div {
 	text-align: center;
 	margin: 0 auto 0 auto;
 	float: left;
-	width: 30%;
+	width: 31.5%;
+}
+
+.gridview p {
+	height: 60px;
 }
 
 .gridview img {
 	max-width: 100%;
-	max-height: 212px;
+	max-height: 210px;
 	margin: 0;
 }
 /**************************/
@@ -475,16 +535,49 @@ textarea {
 	}
 	
 	.eventsAndNav {
-		margin: 20px 0 10% 0;
+		width: 230px;
+		height: 365px;
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 	
-	.eventsAndNav img {
-		max-width: 80px;
+	.eventsAndNav a{
+		margin: 5px 15px 5px 15px;
+		width: 85px;
+		height: 100px;
+	}
+	
+	.eventsAndNav #mapIcon {
+		background-image: url(images/mapIconSpriteSmall.png);
+	}
+	
+	.eventsAndNav #eventsSprite {
+		background-image: url(images/eventsIconSpriteSmall.png);
+	}
+	
+	.eventsAndNav #directoryIcon {
+		background-image: url(images/directoryIconSpriteSmall.png);
+	}
+	
+	.eventsAndNav #backpackIcon {
+		background-image: url(images/backpackIconSpriteSmall.png);
+	}
+	
+	.eventsAndNav #aboutIcon {
+		background-image: url(images/aboutIconSpriteSmall.png);
+	}
+	
+	.eventsAndNav #connectIcon {
+		background-image: url(images/connectIconSpriteSmall.png);
+	}
+
+	.eventsAndNav #mapIcon:active, .eventsAndNav #eventIcon:active, .eventsAndNav #directoryIcon:active, .eventsAndNav #backpackIcon:active, .eventsAndNav #aboutIcon:active, .eventsAndNav #connectIcon:active {
+		background-position: 0 100px;
 	}
 	
 	#eventsCounter {
-		top: -90px;
-		left: 50px;
+		top: -3px;
+		left: 72px;
 		font-size: 25px;
 	}
 	
@@ -501,6 +594,10 @@ textarea {
 	
 	#map_canvas {
 		margin-top: 0;
+	}
+	
+	.ui-header .ui-btn {
+		margin: 5px 0 0 5px;
 	}
 
 	#addNote, {
