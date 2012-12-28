@@ -1483,8 +1483,7 @@ $.ajax({
 });
 				</script>
 				<script> //staff
-var directoryName = 'accounting';
-
+				var directoryName = 'accounting';
 $.ajax({
     type: 'GET',
     url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
@@ -1492,7 +1491,7 @@ $.ajax({
     success: function (data) {
         if(data) {
 
-            var textResults = $(data).find('results-anth').text();
+            var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
 
@@ -1519,20 +1518,19 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + staffMemberPhone + '">' + staffMemberPhone + '</a> <br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-acct').append(divObject);
                 });
             });
         }
     }
-	
 });
-
-</script>
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Accounting</H3>
-				<div id='results-acct'></div> 
+				<div id='results-acct'></div>
+				<div id='results-acct2'></div>
 			</div>
 				<script> //faculty
 				var directoryName = 'anthropology';
@@ -1580,8 +1578,7 @@ $.ajax({
 });
 				</script>
 				<script> //staff
-var directoryName = 'anthropology';
-
+				var directoryName = 'anthropology';
 $.ajax({
     type: 'GET',
     url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
@@ -1589,7 +1586,7 @@ $.ajax({
     success: function (data) {
         if(data) {
 
-            var textResults = $(data).find('results-anth').text();
+            var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
 
@@ -1616,7 +1613,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + staffMemberPhone + '">' + staffMemberPhone + '</a> <br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-anth').append(divObject);
                 });
@@ -1624,7 +1621,7 @@ $.ajax({
         }
     }
 });
-</script>
+				</script>	
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Anthropology</H3>
 				<div id='results-anth'></div>  
@@ -1675,8 +1672,7 @@ $.ajax({
 });
 				</script>
 				<script> //staff
-var directoryName = 'Biology';
-
+				var directoryName = 'biology';
 $.ajax({
     type: 'GET',
     url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'staffdir'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
@@ -1684,7 +1680,7 @@ $.ajax({
     success: function (data) {
         if(data) {
 
-            var textResults = $(data).find('results-anth').text();
+            var textResults = $(data).find('results').text();
 
             $(data).find('results').find('.views-row').each(function (indexFM) {
 
@@ -1711,7 +1707,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + staffMemberPhone + '">' + staffMemberPhone + '</a> <br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-bio').append(divObject);
                 });
@@ -1719,7 +1715,7 @@ $.ajax({
         }
     }
 });
-</script>
+				</script>	
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<h3>Biological Sciences</H3>
 				<div id='results-bio'></div>
@@ -1855,7 +1851,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-comm').append(divObject);
                 });
@@ -1903,7 +1899,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-comm').append(divObject);
                 });
@@ -2000,7 +1996,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-csci').append(divObject);
                 });
@@ -2097,7 +2093,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-cmdc').append(divObject);
                 });
@@ -2145,7 +2141,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-cmdc').append(divObject);
                 });
@@ -2242,7 +2238,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-csci').append(divObject);
                 });
@@ -2339,7 +2335,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-cjc').append(divObject);
                 });
@@ -2387,7 +2383,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-cjc').append(divObject);
                 });
@@ -2484,7 +2480,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-ccgr').append(divObject);
                 });
@@ -2532,7 +2528,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-ccgr').append(divObject);
                 });
@@ -2629,7 +2625,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-edu').append(divObject);
                 });
@@ -2677,7 +2673,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-edu').append(divObject);
                 });
@@ -2725,7 +2721,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-edu').append(divObject);
                 });
@@ -2822,7 +2818,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-eengineer').append(divObject);
                 });
@@ -2919,7 +2915,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-engl').append(divObject);
                 });
@@ -2967,7 +2963,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-engl').append(divObject);
                 });
@@ -3015,7 +3011,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-engl').append(divObject);
                 });
@@ -3112,7 +3108,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-env').append(divObject);
                 });
@@ -3160,7 +3156,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-env').append(divObject);
                 });
@@ -3257,7 +3253,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-art').append(divObject);
                 });
@@ -3354,7 +3350,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-finance').append(divObject);
                 });
@@ -3402,7 +3398,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-finance').append(divObject);
                 });
@@ -3499,7 +3495,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-foreign').append(divObject);
                 });
@@ -3547,7 +3543,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-foreign').append(divObject);
                 });
@@ -3595,7 +3591,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-foreign').append(divObject);
                 });
@@ -3692,7 +3688,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-hist').append(divObject);
                 });
@@ -3740,7 +3736,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-hist').append(divObject);
                 });
@@ -3837,7 +3833,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-hum').append(divObject);
                 });
@@ -3983,7 +3979,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-mis').append(divObject);
                 });
@@ -4031,7 +4027,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-mis').append(divObject);
                 });
@@ -4128,7 +4124,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-mkt').append(divObject);
                 });
@@ -4225,7 +4221,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-math').append(divObject);
                 });
@@ -4273,7 +4269,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-math').append(divObject);
                 });
@@ -4370,7 +4366,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-mecheng').append(divObject);
                 });
@@ -4467,7 +4463,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-molecbio').append(divObject);
                 });
@@ -4515,7 +4511,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-molecbio').append(divObject);
                 });
@@ -4612,7 +4608,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-music').append(divObject);
                 });
@@ -4660,7 +4656,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-music').append(divObject);
                 });
@@ -4757,7 +4753,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-neuro').append(divObject);
                 });
@@ -4805,7 +4801,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-neuro').append(divObject);
                 });
@@ -4902,7 +4898,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-nursing').append(divObject);
                 });
@@ -4950,7 +4946,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-nursing').append(divObject);
                 });
@@ -5047,7 +5043,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-philosophy').append(divObject);
                 });
@@ -5095,7 +5091,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-philosophy').append(divObject);
                 });
@@ -5192,7 +5188,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-polisci').append(divObject);
                 });
@@ -5240,7 +5236,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-polisci').append(divObject);
                 });
@@ -5288,7 +5284,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-polisci').append(divObject);
                 });
@@ -5385,7 +5381,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-profwr').append(divObject);
                 });
@@ -5433,7 +5429,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-profwr').append(divObject);
                 });
@@ -5481,7 +5477,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-profwr').append(divObject);
                 });
@@ -5578,7 +5574,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-psych').append(divObject);
                 });
@@ -5626,7 +5622,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-psych').append(divObject);
                 });
@@ -5674,7 +5670,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-psych').append(divObject);
                 });
@@ -5771,7 +5767,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-pubaff').append(divObject);
                 });
@@ -5819,7 +5815,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-pubaff').append(divObject);
                 });
@@ -5867,7 +5863,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-pubaff').append(divObject);
                 });
@@ -5964,7 +5960,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-socscience').append(divObject);
                 });
@@ -6012,7 +6008,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-socscience').append(divObject);
                 });
@@ -6060,7 +6056,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-socscience').append(divObject);
                 });
@@ -6157,7 +6153,7 @@ $.ajax({
                     var staffMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var staffMemberEmail = '<a href="mailto:' + staffMemberEmailTEMP + '">' + staffMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + staffMemberImage + '" /><span class="dynamicName">' + staffMemberTitle + '</span><br /><span class="dynamicText">' + staffMemberPosition + '<br />' + "Phone: " + staffMemberPhone + '<br />' + "Location: " + staffMemberBuilding + " " + staffMemberRoom + '<br />' + staffMemberEmail + '</span></p>';
 
                     $('#results-sociology').append(divObject);
                 });
@@ -6205,7 +6201,7 @@ $.ajax({
                     var adjMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var adjMemberEmail = '<a href="mailto:' + adjMemberEmailTEMP + '">' + adjMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + adjMemberImage + '" /><span class="dynamicName">' + adjMemberTitle + '</span><br /><span class="dynamicText">' + adjMemberPosition + '<br />' + "Phone: " + adjMemberPhone + '<br />' + "Location: " + adjMemberBuilding + " " + adjMemberRoom + '<br />' + adjMemberEmail + '</span></p>';
 
                     $('#results-sociology').append(divObject);
                 });
@@ -6253,7 +6249,7 @@ $.ajax({
                     var gradMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
                     var gradMemberEmail = '<a href="mailto:' + gradMemberEmailTEMP + '">' + gradMemberEmailTEMP + '</a><span class="iconEmail"></span>'
 
-                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>;
+                    var divObject = '<p><img class="dynamicThumb" src="' + gradMemberImage + '" /><span class="dynamicName">' + gradMemberTitle + '</span><br /><span class="dynamicText">' + gradMemberPosition + '<br />' + "Phone: " + gradMemberPhone + '<br />' + "Location: " + gradMemberBuilding + " " + gradMemberRoom + '<br />' + gradMemberEmail + '</span></p>';
 
                     $('#results-sociology').append(divObject);
                 });
