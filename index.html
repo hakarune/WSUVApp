@@ -6292,187 +6292,301 @@ $.ajax({
 		
 		<div data-role="collapsible-set">
 		<div data-role="listview" data-inset="true" data-filter="true">
+				<script> //Special Case Pages
+				var directoryName = 'admissions';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-admissions').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Admissions</H3>
-				<p>Admissions<br />
-				Phone: <a href="tel:3605469779">360-546-9779</a><br />
-				Location: VSSC 100<br />
-				Email: <a href="mailto:admissions@vancouver.wsu.edu">admissions@vancouver.wsu.edu</a></p>
+				<div id='results-admissions'></div>
 				
-				<p>Hannah Anderson, Program Coordinator<br />
-				Phone: <a href="tel:3605469096">360-546-9096</a><br />
-				Location: VSSC 140 M<br />
-				Email: <a href="mailto:Hannah_anderson@vancouver.wsu.edu">Hannah_anderson@vancouver.wsu.edu</a></p>
-				
-				<p>Natalie Brusseau, Admissions Counselor<br />
-				Phone: <a href="tel:3605469162">360-546-9162</a><br />
-				Location: VSSC 139<br />
-				Email: <a href="mailto:brusseau@vancouver.wsu.edu">brusseau@vancouver.wsu.edu</a></p>
-				
-				<p>Katrina Choi, Admissions Counselor<br />
-				Phone: <a href="tel:3605469782">360-546-9782</a><br />
-				Location: VSSC 135<br />
-				Email: <a href="mailto:katrina.choi@vancouver.wsu.edu">katrina.choi@vancouver.wsu.edu</a></p>
-				
-				<p>Janet Cleveland, Transfer Coordinator at Clark College<br />
-				Phone: <a href="tel:3609922585">360-992-2585</a><br />
-				Location: Clark Gaiser Hall Advising Center<br />
-				Email: <a href="mailto:jrcleveland@vancouver.wsu.edu">jrcleveland@vancouver.wsu.edu</a></p>
-				
-				<p>Carson Creecy, Admissions Counselor<br />
-				Phone: <a href="tel:3605469102">360-546-9102</a><br />
-				Location: VSSC 137<br />
-				Email: <a href="mailto:carson.creecy@vancouver.wsu.edu">carson.creecy@vancouver.wsu.edu</a></p>
-				
-				<p>Kim Hiatt, Associate Director of Admissions<br />
-				Phone: <a href="tel:3605469563">360-546-9563</a><br />
-				Location: VSSC 152<br />
-				Email: <a href="mailto:hiattk@vancouver.wsu.edu">hiattk@vancouver.wsu.edu</a></p>
-				
-				<p>Kate Mcllraith, Admissions Counselor and International Student Advisor<br />
-				Phone: <a href="tel:3605469087">360-546-9087</a><br />
-				Location: VSSC 141<br />
-				Email: <a href="mailto:katem@vancouver.wsu.edu">katem@vancouver.wsu.edu</a></p>
-				
-				<p>Renee Orazi, Credentials Evaluator<br />
-				Phone: <a href="tel:3605469259">360-546-9259</a><br />
-				Location: VSSC 140 N<br />
-				Email: <a href="mailto:rorazi@vancouver.wsu.edu">rorazi@vancouver.wsu.edu</a></p>
-				
-				<p>Julie Talvitie, Program Support Supervisor<br />
-				Phone: <a href="tel:3605469572">360-546-9572</a><br />
-				Location: VSSC 145<br />
-				Email: <a href="mailto:jtalvitie@vancouver.wsu.edu">jtalvitie@vancouver.wsu.edu</a></p>
 			</div>
-			
+				<script> //Special Case Pages
+				var directoryName = 'financial-aid-and-scholarships';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-finaid').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Financial Aid and Scholarships</H3>
-				<p>Financial Aid and Scholarships<br />
-				Phone: <a href="tel:3605469559">360-546-9559</a><br />
-				Location: VSSC 100<br />
-				Email: <a href="mailto:finaid@vancouver.wsu.edu">finaid@vancouver.wsu.edu</a></p>
-				
-				<p>Abril Hunt, Student Affairs Counselor and Financial Aid & Scholarships<br />
-				Phone: <a href="tel:3605469781">360-546-9781</a><br />
-				Location: VSSC 133<br />
-				Email: <a href="mailto:abril.hunt@vancouver.wsu.edu">abril.hunt@vancouver.wsu.edu</a></p>
-				
-				<p>April Lappin, Financial Aid & Scholarships Manager<br />
-				Phone: <a href="tel:3605469103">360-546-9103</a><br />
-				Location: VSSC 131<br />
-				Email: <a href="mailto:april.lappin@vancouver.wsu.edu">april.lappin@vancouver.wsu.edu</a></p>
+				<div id='results-finaid'></div>
 			</div>
-			
+				<script> //Special Case Pages
+				var directoryName = 'registrars-office';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-registrar').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Registrar's Office</H3>
-				<p>Registrar's Office<br />
-				Phone: <a href="tel:3605469565">360-546-9565</a><br />
-				Location: VSSC 100<br />
-				Email: <a href="mailto:registrar@vancouver.wsu.edu">registrar@vancouver.wsu.edu</a></p>
+				<div id='results-registrar'></div>
 				
-				<p>Jenny Kincaid, Program Coordinator<br />
-				Phone: <a href="tel:3605469553">360-546-9553</a><br />
-				Location: VSSC 140 E<br />
-				Email: <a href="mailto:jenny.kincaid@vancouver.wsu.edu">jenny.kincaid@vancouver.wsu.edu</a></p>
-				
-				<p>Jean Lang, Campus Registrar<br />
-				Phone: <a href="tel:3605469566">360-546-9566</a><br />
-				Location: VSSC 150<br />
-				Email: <a href="mailto:langj@vancouver.wsu.edu">langj@vancouver.wsu.edu</a></p>
-				
-				<p>Phyllis Vomacka, Program Coordinator<br />
-				Phone: <a href="tel:3605469565">360-546-9565</a><br />
-				Location: VSSC 140 F<br />
-				Email: <a href="mailto:pchase@vancouver.wsu.edu">pchase@vancouver.wsu.edu</a></p>
 			</div>
-			
+				<script> //Special Case Pages
+				var directoryName = 'student-diversity';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-diversity').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Student Diversity</H3>
-				<p>Bola Majekobaje, Assistant Director<br />
-				Phone: <a href="tel:3605469568">360-546-9568</a><br />
-				Location: VFSC 125<br />
-				Email: <a href="mailto:majekoba@vancouver.wsu.edu">majekoba@vancouver.wsu.edu</a></p>
+				<div id='results-diversity'></div>
 			</div>
-			
+				<script> //Special Case Pages
+				var directoryName = 'student-involvement';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-student-inv').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Student Involvement</H3>
-				<p>OSI Front Desk<br />
-				Phone: <a href="tel:3605469163">360-54-9163</a><br />
-				Location: VFSC 100<br />
-				Email: <a href="mailto:osi@vancouver.wsu.edu">osi@vancouver.wsu.edu</a></p>
-				
-				<p>Anthony Deringer, Recreation Coordinator<br />
-				Phone: <a href="tel:3605469532">360-546-9532</a><br />
-				Location: VFSC 136<br />
-				Email: <a href="mailto:a.deringer@vancouver.wsu.edu">a.deringer@vancouver.wsu.edu</a></p>
-				
-				<p>Michelle Mclvoy, Student Involvement Manager<br />
-				Phone: <a href="tel:3605469530">360-546-9530</a><br />
-				Location: VFSC 123<br />
-				Email: <a href="mailto:mmcilvoy@vancouver.wsu.edu">mmcilvoy@vancouver.wsu.edu</a></p>
-				
-				<p>Casey Payseno, Advisor<br />
-				Phone: <a href="tel:3605469465">360-546-9465</a><br />
-				Location: VFSC 127<br />
-				Email: <a href="mailto:casey.payseno@vancouver.wsu.edu">casey.payseno@vancouver.wsu.edu</a></p>
-				
-				<p>Teresa Picchioni, Program Coordinator<br />
-				Phone: <a href="tel:3605469527">360-546-9527</a><br />
-				Location: VFSC 121<br />
-				Email: <a href="mailto:teresa.picchioni@vancouver.wsu.edu">teresa.picchioni@vancouver.wsu.edu</a></p>
+				<div id='results-student-inv'></div>
 			</div>
-			
+				<script> //Special Case Pages
+				var directoryName = 'student-resource-center';
+$.ajax({
+    type: 'GET',
+    url: "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22http%3A%2F%2Fdirectory.vancouver.wsu.edu%2F" + directoryName + "%22%20and%20xpath%3D%22%2F%2Fdiv%5B%40id%3D'content-area'%5D%2Fdiv%2Fdiv%2Fdiv%2Fdiv%22",
+    dataType: 'xml',
+    success: function (data) {
+        if(data) {
+
+            var textResults = $(data).find('results').text();
+
+            $(data).find('results').find('.views-row').each(function (indexFM) {
+
+                var facultyMember = this;
+
+                $(facultyMember).each(function (indexFC) {
+
+                    var facultyMemberImage = $(this).find('.views-field-field-profile-image-fid #directoryimage a img').attr('src');
+
+                    var facultyMemberTitleTEMP = $(this).find('.views-field-field-professional-title-value #largetitle').text();
+
+                    var facultyMemberTitleUrl = $(this).find('.views-field-field-professional-title-value #largetitle a').attr('href');
+
+                    var facultyMemberTitle = '<a href="http://directory.vancouver.wsu.edu' + facultyMemberTitleUrl + '">' + facultyMemberTitleTEMP + '</a>';
+
+                    var facultyMemberPosition = $(this).find('.views-field-field-position-value span').text();
+
+                    var facultyMemberPhone = $(this).find('.views-field-field-phone-value span').text();
+
+                    var facultyMemberBuilding = $(this).find('.views-field-field-building-value span').text();
+
+                    var facultyMemberRoom = $(this).find('.views-field-field-room-number-value span').text();
+
+                    var facultyMemberEmailTEMP = $(this).find('.views-field-field-email-value span').text();
+                    var facultyMemberEmail = '<a href="mailto:' + facultyMemberEmailTEMP + '">' + facultyMemberEmailTEMP + '</a><span class="iconEmail"></span>'
+
+                    var divObject = '<p><img class="dynamicThumb" src="' + facultyMemberImage + '" /><span class="dynamicName">' + facultyMemberTitle + '</span><br /><span class="dynamicText">' + facultyMemberPosition + '<br />' + "Phone:" + '<a href="tel:' + facultyMemberPhone + '">' + facultyMemberPhone + '</a> <br />' + "Location: " + facultyMemberBuilding + " " + facultyMemberRoom + '<br />' + facultyMemberEmail + '</span></p>';
+
+                    $('#results-src').append(divObject);
+                });
+            });
+        }
+    }
+});
+				</script>
 			<div class="collapsibleDirectory" data-role="collapsible">
 				<H3>Student Resource Center</H3>
-				<p>SRC Front Desk<br />
-				Phone: <a href="tel:3605469155">360-56-9155</a><br />
-				Location: VSSC Lower Level<br />
-				Email: <a href="mailto:src@vancouver.wsu.edu">src@vancouver.wsu.edu</a></p>
-				
-				<p>Heather Chase, Program Coordinator<br />
-				Phone: <a href="tel:3605469285">360-546-9285</a><br />
-				Location: VSSC 20 B<br />
-				Email: <a href="mailto:hchase@vancouver.wsu.edu">hchase@vancouver.wsu.edu</a></p>
-				
-				<p>Sally Dost, Disability Services Coordinator<br />
-				Phone: <a href="tel:3605469138">360-546-9138</a><br />
-				Location: VSSC 20 B<br />
-				Email: <a href="mailto:sdost@vancouver.wsu.edu">sdost@vancouver.wsu.edu</a></p>
-				
-				<p>Kelsey DuPere, Student Achievement Manager<br />
-				Phone: <a href="tel:3605469165">360-546-9165</a><br />
-				Location: VSSC 20 D<br />
-				Email: <a href="mailto:dupere@vancouver.wsu.edu">dupere@vancouver.wsu.edu</a></p>
-				
-				<p>Alicia Lee, Program Assistant<br />
-				Phone: <a href="tel:3605469155">360-546-9155</a><br />
-				Location: VSSC 23<br />
-				Email: <a href="mailto:alicialee@vancouver.wsu.edu">alicialee@vancouver.wsu.edu</a></p>
-				
-				<p>Christine Lundeen, Career Counselor<br />
-				Phone: <a href="tel:3605469155">360-546-9155</a><br />
-				Location: VSSC 20 E<br />
-				Email: <a href="mailto:clundeen@vancouver.wsu.edu">clundeen@vancouver.wsu.edu</a></p>
-				
-				<p>Kelly McKone, Proctor<br />
-				Phone: <a href="tel:3605469155">360-546-9155</a><br />
-				Location: VSSC 23<br />
-				Email: <a href="mailto:kmckone@vancouver.wsu.edu">kmckone@vancouver.wsu.edu</a></p>
-				
-				<p>Cindy Morical, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469567">360-546-9567</a><br />
-				Location: VSSC 20 C<br />
-				Email: <a href="mailto:cmorical@vancouver.wsu.edu">cmorical@vancouver.wsu.edu</a></p>
-				
-				<p>Miwako Nakamoto, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469166">360-546-9166</a><br />
-				Location: VSSC 20 F<br />
-				Email: <a href="mailto:mnakamoto@vancouver.wsu.edu">mnakamoto@vancouver.wsu.edu</a></p>
-				
-				<p>Bill Stahley, Acedemic Coordinator<br />
-				Phone: <a href="tel:3605469273">360-546-9273</a><br />
-				Location: VSSC 20 A<br />
-				Email: <a href="mailto:bstahley@vancouver.wsu.edu">bstahley@vancouver.wsu.edu</a></p>
+				<div id='results-src'></div>				
 			</div>
 		</div>
 		</div>
